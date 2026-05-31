@@ -3,7 +3,31 @@
 > **Live Server:** `http://129.212.231.122/`
 > **Droplet:** DigitalOcean — `bookhive-erp` (Ubuntu 24.04)
 
-This document is the **first thing to check** if the BookHive ERP site is down, unreachable, or throwing errors. Follow the steps in order.
+---
+
+## 👨‍🏫 For the Professor / Evaluator — If the Site is Down
+
+> You do **not** need any server credentials or technical knowledge. Please follow these steps:
+
+### Step 1 — Wait 60 Seconds and Refresh
+The server is configured to **automatically self-heal**. If a service crashed, Docker will restart it within seconds on its own. Simply wait 1 minute and refresh the browser at `http://129.212.231.122/`.
+
+### Step 2 — If Still Down, Contact the Development Team
+Please reach out to any team member below and we will restore the server remotely within minutes:
+
+| Name | Role | Contact |
+| :--- | :--- | :--- |
+| **Roma, Sean Justin** | Lead Developer & System Architect | seanromaa@gmail.com |
+| **Bermejo, Kate Nicole** | Backend Developer | katenicolebermejo84@gmail.com |
+| **Andura, Carla** | Database Administrator | *(contact via class group chat)* |
+
+> The server runs on **DigitalOcean** in the cloud and does **not** require any local machine to be turned on. It runs 24/7 independently. Any downtime is temporary and can be resolved remotely by the team.
+
+---
+
+## 🛠️ For the Development Team — Technical Recovery Guide
+
+This section is the **first thing to check** if the BookHive ERP site is down, unreachable, or throwing errors. Follow the steps in order.
 
 ---
 
