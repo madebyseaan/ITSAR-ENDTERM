@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   nginx:
     image: nginx:latest
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
@@ -12,9 +11,18 @@ services:
       - api-gateway
     networks:
       - erp_network
+    mem_limit: 64m
 
   database:
     image: mysql:8.0
+    restart: unless-stopped
+    # Memory-tuned MySQL flags to prevent OOM crashes on small Droplets
+    command: >
+      --innodb-buffer-pool-size=64M
+      --key-buffer-size=16M
+      --max-connections=50
+      --tmp-table-size=16M
+      --max-heap-table-size=16M
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
@@ -22,9 +30,11 @@ services:
       - ./db-init:/docker-entrypoint-initdb.d
     networks:
       - erp_network
+    mem_limit: 256m
 
   auth-service:
     build: ./auth-service
+    restart: unless-stopped
     environment:
       - APP_ENV=${APP_ENV}
       - DB_HOST=${DB_HOST}
@@ -34,9 +44,11 @@ services:
       - database
     networks:
       - erp_network
+    mem_limit: 128m
 
   inventory-service:
     build: ./inventory-service
+    restart: unless-stopped
     environment:
       - APP_ENV=${APP_ENV}
       - DB_HOST=${DB_HOST}
@@ -46,9 +58,11 @@ services:
       - database
     networks:
       - erp_network
+    mem_limit: 128m
 
   order-service:
     build: ./order-service
+    restart: unless-stopped
     environment:
       - APP_ENV=${APP_ENV}
       - DB_HOST=${DB_HOST}
@@ -58,9 +72,11 @@ services:
       - database
     networks:
       - erp_network
+    mem_limit: 128m
 
   reporting-service:
     build: ./reporting-service
+    restart: unless-stopped
     environment:
       - APP_ENV=${APP_ENV}
       - DB_HOST=${DB_HOST}
@@ -70,9 +86,11 @@ services:
       - database
     networks:
       - erp_network
+    mem_limit: 128m
 
   api-gateway:
     build: ./api-gateway
+    restart: unless-stopped
     environment:
       - APP_ENV=${APP_ENV}
       - DB_HOST=${DB_HOST}
@@ -84,15 +102,18 @@ services:
       - order-service
     networks:
       - erp_network
+    mem_limit: 128m
 
   frontend:
     build: ./frontend
+    restart: unless-stopped
     environment:
       - APP_ENV=${APP_ENV}
     depends_on:
       - api-gateway
     networks:
       - erp_network
+    mem_limit: 128m
 
 networks:
   erp_network:
