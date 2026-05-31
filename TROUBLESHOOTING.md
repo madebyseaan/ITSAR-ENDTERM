@@ -18,8 +18,10 @@ Please reach out to any team member below and we will restore the server remotel
 | Name | Role | Contact |
 | :--- | :--- | :--- |
 | **Roma, Sean Justin** | Lead Developer & System Architect | seanromaa@gmail.com |
-| **Bermejo, Kate Nicole** | Backend Developer | katenicolebermejo84@gmail.com |
-| **Andura, Carla** | Database Administrator | *(contact via class group chat)* |
+| **Bermejo, Kate Nicole** | Backend Developer & Microservices Engineer | katenicolebermejo84@gmail.com |
+| **Andura, Carla** | Database Administrator & System Integration | *(contact via class group chat)* |
+| **Garcia, Sophia Christi** | Frontend Developer & UI/UX Designer | *(contact via class group chat)* |
+| **Labrador, Mariene** | Quality Assurance & Documentation Specialist | *(contact via class group chat)* |
 
 > The server runs on **DigitalOcean** in the cloud and does **not** require any local machine to be turned on. It runs 24/7 independently. Any downtime is temporary and can be resolved remotely by the team.
 
